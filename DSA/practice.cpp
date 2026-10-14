@@ -5,55 +5,32 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // ll t;
-    // cin >> t;
-    // while (t--)
-    // {
-    ll n, four;
-    four = 0;
-    cin >> n;
-    vector<int> nums;
-    for (int i = 0; i < n; i++)
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        int x;
-        cin >> x;
-        if (x < 4)
-            nums.push_back(x);
-        else
-            four++;
-    }
-    sort(nums.begin(), nums.end());
-    int low = 0;
-    int high = n - 1;
-    int cur = 1;
-    int rem = 4;
-    while (low <= high)
-    {
-        if (low == high)
+        ll n, k;
+        cin >> n >> k;
+        vector<int> a(n), b(n), c(n);
+        for (int i = 0; i < n; i++)
+            cin >> a[i];
+        for (int i = 0; i < n; i++)
+            cin >> b[i];
+        ll sum = 0;
+        int maxelem = INT_MIN;
+        for (int i = 0; i < n; i++)
         {
-            if (rem <= nums[high])
-                rem -= nums[low];
-            else
-                cur++;
-            low++;
+            sum += a[i];
+            maxelem = max(b[i], maxelem);
+            c[i] = ((k - (i + 1)) * (maxelem)) + sum;
+            if ((k - (i + 1)) == 0)
+                break;
         }
+        ll maxele = *max_element(c.begin(), c.end());
+        if (maxele > sum)
+            cout << maxele << "\n";
         else
-        {
-            if (nums[low] + nums[high] <= rem)
-            {
-                rem -= nums[low] + nums[high];
-                low++;
-                high--;
-            }
-            else if(rem >= nums[high]) rem-=nums[high--];
-            else if(rem >= nums[low]) rem-=nums[low++];
-            else{
-                cur++;
-                rem = 4;
-            }
-        }
+            cout << sum << "\n";
     }
-    cout << cur + four<< "\n";
-    //}
     return 0;
 }
