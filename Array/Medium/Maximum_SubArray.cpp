@@ -3,10 +3,10 @@ using namespace std;
 int BF_Maximum_SubArray(vector<int> arr)
 {
     int maxi = INT_MIN;
-    for (i = 0; i < arr.size(); i++)
+    for (int i = 0; i < arr.size(); i++)
     {
-        sum = 0;
-        for (j = i; j < arr.size(); j++)
+        int sum = 0;
+        for (int j = i; j < arr.size(); j++)
         {
             sum += arr[j];
         }
