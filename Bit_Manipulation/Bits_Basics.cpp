@@ -59,7 +59,7 @@ int Count_Set_Bits(int n)
 // X = A ^ B ^ X (we can write above code as this as well)
 
 // // MODULO OF 2^K
-// X % 2 => (X & ((1 << K) - 1))
+// X % (2 ^ K) => (X & ((1 << K) - 1))
 
 int main()
 {
