@@ -50,6 +50,17 @@ int Count_Set_Bits(int n)
 // // check if num is odd or not
 // if((N & 1) == 1) then YES else NO
  
+// // Summation Formulaes
+// A + B => (A ^ B) + 2*(A & B)
+// A + B => (A | B) + (A & B)
+
+// // Toggling Forumla
+// if (X == A) then X = B else if(X == B) X = A
+// X = A ^ B ^ X (we can write above code as this as well)
+
+// // MODULO OF 2^K
+// X % 2 => (X & ((1 << K) - 1))
+
 int main()
 {
     ios_base::sync_with_stdio(false);
