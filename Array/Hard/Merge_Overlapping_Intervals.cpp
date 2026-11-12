@@ -7,7 +7,7 @@ vector<vector<int>> BF_Merge(vector<vector<int>> &matrix)
     sort(matrix.begin(), matrix.end());
     for (int i = 0; i < n; i++)
     {
-        int start = matirx[i][0];
+        int start = matrix[i][0];
         int end = matrix[i][1];
         if (!ans.empty() && ans.back()[1] >= end)
         {
@@ -17,7 +17,7 @@ vector<vector<int>> BF_Merge(vector<vector<int>> &matrix)
         {
             if (matrix[j][0] <= end)
             {
-                ernd = max(end, matrix[j][1]);
+                end = max(end, matrix[j][1]);
             }
             else
                 break;
